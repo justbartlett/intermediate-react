@@ -38,7 +38,8 @@
     "lint": "tslint --project",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "parcel build --public-url ./dist/ src/index.html",
-    "start": "npm run build && babel-node server/index.js"
+    "start": "npm run build && babel-node server/index.js",
+    "typecheck": "tsc --noEmit"
   },
   "author": "Brian Holt <btholt+complete-intro-to-react@gmail.com>",
   "license": "Apache-2.0",
