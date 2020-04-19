@@ -44,3 +44,13 @@ Pull requests are extremely welcome! If you see a typo in the course website, yo
 [fem]: https://frontendmasters.com/
 [course]: https://frontendmasters.com/courses/complete-react-v5/
 [course-intermediate]: https://frontendmasters.com/courses/intermediate-react-v2/
+
+
+## How to convert to Typescript
+
+npm i -D typescript
+npx tsc --init
+update tsconfig.json
+    "target": "ES2018"
+    "jsx": "react"
+npm install -D @types/react @types/react-dom @types/reach__router
