@@ -1,6 +1,7 @@
 import express from 'express';
 import React from 'react';
-import { renderToString } from 'react-dom/server';
+// import { renderToString } from 'react-dom/server';
+import { renderToNodeStream } from 'react-dom/server';
 import { ServerLocation} from '@reach/router';
 import fs from 'fs';
 import App from '../src/App';
@@ -21,6 +22,9 @@ app.use('/dist', express.static('dist'));
 
 // middleware to run everytime it gets a request
 app.use((req, res) => {
+
+  // send the css, the first piece
+  res.write(parts[0]);
   // the core idea is render it on the server and sent it to the client as complete markup  
   const reactMarkup = (
     // this is from reach router to do the server side rendering
@@ -28,9 +32,20 @@ app.use((req, res) => {
       <App />
     </ServerLocation>
   )
+
+  // send a stream - bits of data over time
+  const stream = renderToNodeStream(reactMarkup);
+  stream.pipe(res, {end: false});
+
+  // when youre done send the end html and end
+  stream.on('end', () => {
+    res.write(parts[1]);
+    res.end();
+  })
+
   // first html part, the react code, second html part
-  res.send(parts[0] + renderToString(reactMarkup) + parts[1]);
-  res.end();
+  // res.send(parts[0] + renderToString(reactMarkup) + parts[1]);
+  // res.end();
 });
 
 console.log('listening on ' + PORT);
