@@ -2,7 +2,7 @@
   "name": "complete-intro-to-react-v5",
   "version": "1.0.0",
   "description": "the Complete Intro to React, v5",
-  "main": "src/App.js",
+  "main": "src/App.tsx",
   "dependencies": {
     "@babel/node": "^7.8.7",
     "@emotion/babel-preset-css-prop": "^10.0.27",

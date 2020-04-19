@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FunctionComponent } from "react";
 import { Link } from "@reach/router";
 import { css, keyframes } from "@emotion/core";
 import colors from "./Colors";
@@ -9,8 +9,8 @@ const spin = keyframes`
   }
 `;
 
-const NavBar = () => {
-  const [padding, setPadding] = useState(15);
+const NavBar: FunctionComponent = () => {
+  const [padding] = useState(15);
   return (
     <header
       // onClick={() => setPadding(padding + 15)}
