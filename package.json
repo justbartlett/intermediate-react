@@ -8,6 +8,7 @@
     "@emotion/core": "^10.0.27",
     "@frontendmasters/pet": "^1.0.3",
     "@reach/router": "^1.2.1",
+    "moment": "^2.24.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
