@@ -54,3 +54,20 @@ update tsconfig.json
     "target": "ES2018"
     "jsx": "react"
 npm install -D @types/react @types/react-dom @types/reach__router
+update components
+replace eslint with tslint 
+    npm uninstall eslint babel-eslint eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks
+    npm install -D tslint tslint-react tslint-config-prettier
+delete eslintrc.json
+in package.json - scripts - "lint": "tslint --project",
+new file tslint.json
+    {
+        "extends": ["tslint: recommended", "tslint-react", "tslint-config-prettier"],
+        "rules": {
+            "ordered-imports": false,
+            "object-literal-sort-keys": false,
+            "no-console": false,
+            "jsx-no-lambda": false,
+            "member-ordering": false
+        }
+    }
